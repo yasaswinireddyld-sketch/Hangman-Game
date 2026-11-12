@@ -1,0 +1,76 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hangman Game</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+    <div class="container">
+
+        <h1>🎮 Hangman Game</h1>
+
+        <h2>Category: {{ category.capitalize() }}</h2>
+
+        <p>Guess the hidden word!</p>
+
+        <div class="word">
+            {{ word_display }}
+        </div>
+
+        <h3>{{ message }}</h3>
+
+        <p class="attempts {% if message == 'Oops! Wrong Answer' %}wrong-blink{% endif %}">
+            Remaining Attempts: {{ attempts }}
+        </p>
+
+        {% if not game_over %}
+
+            <p>Choose a letter:</p>
+
+            <div class="keyboard">
+
+                {% for letter in "abcdefghijklmnopqrstuvwxyz" %}
+
+                    <form action="/guess" method="POST">
+
+                        <input type="hidden" name="letter" value="{{ letter }}">
+
+                        <button type="submit" class="key">
+                            {{ letter.upper() }}
+                        </button>
+
+                    </form>
+
+                {% endfor %}
+
+            </div>
+
+        {% else %}
+
+            {% if won %}
+
+                <h2>🎉 Congratulations! You Won!</h2>
+
+            {% else %}
+
+                <h2>Game Over! Better Luck Next Time!</h2>
+
+            {% endif %}
+
+            <p>The word was: <strong>{{ word }}</strong></p>
+
+            <a href="/">Play Again</a>
+
+        {% endif %}
+
+    </div>
+
+</body>
+</html>

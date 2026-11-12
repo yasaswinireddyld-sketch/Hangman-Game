@@ -1,0 +1,268 @@
+
+
+/* =========================
+   GENERAL STYLING
+========================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+
+    background:
+        radial-gradient(circle at 15% 20%, #7c3aed 0%, transparent 35%),
+        radial-gradient(circle at 85% 80%, #2563eb 0%, transparent 35%),
+        linear-gradient(135deg, #0f172a, #312e81, #1e1b4b);
+
+    background-attachment: fixed;
+
+    min-height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 20px;
+}
+
+/* =========================
+   MAIN CONTAINER
+========================= */
+
+.container {
+    background: rgba(255, 255, 255, 0.96);
+
+    width: 90%;
+    max-width: 600px;
+
+    padding: 40px 30px;
+
+    text-align: center;
+
+    border-radius: 20px;
+
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
+}
+
+/* =========================
+   HEADINGS
+========================= */
+
+h1 {
+    color: #4c1d95;
+    font-size: 30px;
+    margin-bottom: 20px;
+}
+
+h2 {
+    color: #334155;
+    margin: 20px 0;
+}
+
+h3 {
+    color: #7c3aed;
+    margin: 20px 0;
+}
+
+/* =========================
+   PARAGRAPHS
+========================= */
+
+p {
+    color: #64748b;
+    margin: 15px 0;
+    font-size: 16px;
+}
+
+/* =========================
+   WORD DISPLAY
+========================= */
+
+.word {
+    color: #6d28d9;
+    font-size: 35px;
+    font-weight: bold;
+    letter-spacing: 8px;
+    margin: 25px 0;
+}
+
+/* =========================
+   ATTEMPTS
+========================= */
+
+.attempts {
+    background: #ede9fe;
+    color: #5b21b6;
+
+    padding: 14px;
+
+    border-radius: 10px;
+
+    font-weight: bold;
+
+    margin: 20px 0;
+}
+
+/* WRONG GUESS BLINK */
+
+.wrong-blink {
+    animation: blink 0.5s ease-in-out 3;
+}
+
+@keyframes blink {
+
+    0%, 100% {
+        background: #ede9fe;
+        color: #5b21b6;
+        transform: scale(1);
+    }
+
+    50% {
+        background: #ef4444;
+        color: white;
+        transform: scale(1.08);
+    }
+}
+
+/* =========================
+   CATEGORY BUTTONS
+========================= */
+
+.categories {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+    margin-top: 25px;
+}
+
+.categories form {
+    margin: 0;
+}
+
+.categories button {
+    width: 100%;
+
+    padding: 15px;
+
+    background: #7c3aed;
+    color: white;
+
+    border: none;
+    border-radius: 10px;
+
+    font-size: 16px;
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+}
+
+.categories button:hover {
+    background: #5b21b6;
+    transform: translateY(-4px);
+}
+
+/* =========================
+   LETTER KEYBOARD
+========================= */
+
+.keyboard {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+
+    gap: 10px;
+
+    margin-top: 25px;
+}
+
+.keyboard form {
+    margin: 0;
+}
+
+.key {
+    width: 100%;
+
+    padding: 13px 5px;
+
+    background: #7c3aed;
+    color: white;
+
+    border: none;
+    border-radius: 8px;
+
+    font-size: 16px;
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition: 0.2s;
+}
+
+.key:hover {
+    background: #5b21b6;
+    transform: translateY(-3px);
+}
+
+/* =========================
+   PLAY AGAIN BUTTON
+========================= */
+
+a {
+    display: inline-block;
+
+    margin-top: 20px;
+
+    padding: 12px 25px;
+
+    background: #7c3aed;
+    color: white;
+
+    text-decoration: none;
+
+    border-radius: 10px;
+
+    transition: 0.3s;
+}
+
+a:hover {
+    background: #5b21b6;
+    transform: scale(1.05);
+}
+
+/* =========================
+   MOBILE RESPONSIVE
+========================= */
+
+@media (max-width: 500px) {
+
+    .container {
+        padding: 25px 15px;
+    }
+
+    h1 {
+        font-size: 24px;
+    }
+
+    .word {
+        font-size: 25px;
+        letter-spacing: 5px;
+    }
+
+    .keyboard {
+        grid-template-columns: repeat(6, 1fr);
+        gap: 7px;
+    }
+
+    .key {
+        padding: 12px 3px;
+    }
+
+    .categories {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
